@@ -126,10 +126,17 @@ LeadSpend.setEmailMessages = function(field){
 		LeadSpend.denyAddressMessage = lsRules.denyAddressMessage(LeadSpend.validity);
 	}
 	else{
-		LeadSpend.denyAddressMessage = "Please use a different email address.";
+		LeadSpend.denyAddressMessage = LeadSpend.defaultDenyAddressMessage(LeadSpend.validity);
 	}
 
 }
+
+LeadSpend.defaultDenyAddressMessage = function(validity){
+	if (typeof validity != "undefined"){
+		return "Email address is "+validity.result+".";
+	}
+		return "Invalid address.";
+	}
 
 
 /** 

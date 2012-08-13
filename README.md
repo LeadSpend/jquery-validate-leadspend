@@ -51,3 +51,20 @@ There are a number of customizations, configured through the normal jQuery
 Validate settings, which may improve your experience using LeadSpend on your
 site.
 
+### Custom Error Messages
+
+By default, jQuery Validate places an error message next to each field which has
+been filled out incorrectly.  The LeadSpend plugin is no exception, and provides
+default messages for each invalid state.  These states are as follows:
+
+	Invalid Email Eddress: An email address has been classified by LeadSpend as
+	invalid.  This can mean the address is undeliverable, unreachable, illegitimate,
+	or disposable, and LeadSpend recommends not accepting these addresses.
+	
+	Email Validity Pending: An email address has been sent to the LeadSpend API to
+	be classified, but the result has not been returned yet.  Don't worry, we have
+	a response, but sometimes these things take time (our default timeout is 5
+	seconds).
+
+These may be customized using either a string or a function, by assigning custom
+rules to the LeadSpendEmail class of your email field.  This is 

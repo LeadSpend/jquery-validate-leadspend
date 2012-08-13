@@ -3,10 +3,6 @@
  * "LeadSpendEmail" to the field you wish to perform validation on and 
  * edit the following values:
  *
- *		LeadSpend.setMessages may be used to set custom error messages to be
- *		displayed while the validation is pending and when an address is
- *		undeliverable.  Either or both may be uncommented and edited.
- *
  * 	The variable EMAIL_FIELD_NAME should be changed to the name attribute of
  * 	the field you wish to perform LeadSpend email validation on.
  * 	
@@ -28,7 +24,7 @@ $(document).ready(function(){
 					validityPendingMessage: "Pending...",
 					denyAddressMessage: function(validity){
 						if (typeof validity != "undefined"){
-							return "Email address is "+validity.result+".";
+							return "This email address is "+validity.result+". Please use another.";
 						}
 						return "Invalid address.";
 					}
