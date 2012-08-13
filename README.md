@@ -15,18 +15,18 @@ The included files are as follows:
 	demo/js/leadspend.jsonp.js
 	demo/js/leadspend.custom.tutorial.js
 	
-## jquery.validate.leadspend.js
+### jquery.validate.leadspend.js
 The LeadSpend jQuery Validate plugin.  Calling this file is all that is
 necessary to add LeadSpend validation as a jQuery Validate rule.
 
-## demo/index.html
+### demo/index.html
 Contains a demo form as an example of how to integrate the LeadSpend jQuery
 Validate plugin into a form.
 
-## demo/js/leadspend.jsonp.js
+### demo/js/leadspend.jsonp.js
 This is the file required to make a call to LeadSpend's validation API.
 
-## demo/js/leadspend.custom.tutorial.js
+### demo/js/leadspend.custom.tutorial.js
 This file contains an example of various customizations for jQuery Validate
 integration.
 
