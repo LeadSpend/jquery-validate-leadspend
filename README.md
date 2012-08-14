@@ -133,7 +133,7 @@ invalidHandler like so:
 		 }
 	});
 
-Check out our Demo Form
+Check Out Our Demo Form
 -----------------------
 
 For a full exmaple of how to integrate LeadSpend into a form, take a look at the demo form included here.  The demo form shows how to easily integrate LeadSpend validation into your website, as well as applying the three 
