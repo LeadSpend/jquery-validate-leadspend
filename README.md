@@ -117,7 +117,7 @@ we must customize the default onkeyup action like so:
 ### Optional Form Submission Handling
 
 While the LeadSpend result is pending, the email address field is considered invalid
-even though the address a user inputs may actually be valid.  If a user tries to
+even though the address may actually be a good one.  If a user tries to
 submit the form before the LeadSpend API call completes, the form will not be sent.
 Even though everything is working fine behind the scenes, and the user is told that
 the email address is "Validating..." they may still believe that the form is broken.
