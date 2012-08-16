@@ -162,3 +162,14 @@ LeadSpend.getMessage = function(field){
 	}
 }
 
+// Now add the the LeadSpendEmail rule to jQuery Validate
+$(document).ready(function(){
+	jQuery.validator.addMethod("LeadSpendEmail",
+		function(value) {
+			return LeadSpend.getEmailValidity(value);
+		},
+		function(value, field){
+			return LeadSpend.getMessage(field);
+		}
+	);
+});
