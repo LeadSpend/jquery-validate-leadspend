@@ -130,6 +130,11 @@ LeadSpend.setEmailMessages = function(field){
 	}
 }
 
+/** 
+ * defaultDenyAddressMessage is used to return a default messages for each
+ * possible LeadSpend email validation result.
+ * 
+ */
 LeadSpend.defaultDenyAddressMessage = function(validity){
 	if (typeof validity != "undefined"){
 		return "Email address is "+validity.result+".";
