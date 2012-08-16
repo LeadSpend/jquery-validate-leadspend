@@ -19,7 +19,7 @@ very simple and consists of three steps:
 * Include the required files. See [demo/index.html](https://github.com/LeadSpend/jquery-validate-leadspend/blob/master/demo/index.html#L7-16).
 * Add the class attribute "LeadSpendEmail" to the email field you wish to be validated. See [ demo/index.html](https://github.com/LeadSpend/jquery-validate-leadspend/blob/master/demo/index.html#L28-32).
 * Initialize jQuery Validate on your form with the jQuery Validate configurations
-below. See [demo/js/leadspend.demo.js](https://github.com/LeadSpend/jquery-validate-leadspend/blob/master/demo/js/leadspend.demo.js#L7-8) for initialization and [Recommended Configuration](https://github.com/LeadSpend/jquery-validate-leadspend/edit/master/README.md#recommended-validation-handling) for configuration details.
+below. See [demo/js/leadspend.demo.js](https://github.com/LeadSpend/jquery-validate-leadspend/blob/master/demo/js/leadspend.demo.js#L7-8) for initialization and the [Recommended jQuery Validate Configuration](https://github.com/LeadSpend/jquery-validate-leadspend#recommended-jquery-validate-configuration) section for details.
 
 Recommended jQuery Validate Configuration
 -----------------------------------------
@@ -36,7 +36,7 @@ the form being validated:
 
 By default, jQuery Validate is set to re-validate a field each time a keystroke
 is detected in that field.  Using this methodology for LeadSpend validation
-doesn't make sense because it will make calls to the API before the email
+doesn't make sense because calls will be made to the API before the email
 address has been completely typed.  To prevent this from happening,
 we must customize the default onkeyup action.  For an example of this, see [demo/js/leadspend.demo.js](https://github.com/LeadSpend/jquery-validate-leadspend/blob/master/demo/js/leadspend.demo.js#L10-15)
 	
@@ -50,7 +50,7 @@ still be considered invalid.
 
 LeadSpend provides a method for attempting to automatically re-submit the form
 once a valid result is returned.  To utilize this, simply add a function call
-to the default invalidHandler as is shown in lines X-Z in demo/custom [demo/js/leadspend.demo.js](https://github.com/LeadSpend/jquery-validate-leadspend/blob/master/demo/js/leadspend.demo.js#L16-19)
+to the default invalidHandler as is shown here:  [demo/js/leadspend.demo.js](https://github.com/LeadSpend/jquery-validate-leadspend/blob/master/demo/js/leadspend.demo.js#L16-19)
 
 Invalid States and Custom Error Messages
 ----------------------------------------
@@ -68,8 +68,8 @@ default messages for each invalid state.  These states are as follows:
 
 These messages may be customized using either a string or a function, by setting
 custom parameters for the rule through jQuery Validate.  If a function is used,
-the function must accept one parameter and return a string. For an example, see
-[demo/js/leadspend.demo.js](https://github.com/LeadSpend/jquery-validate-leadspend/blob/master/demo/js/leadspend.demo.js#L20-37).
+the function must accept one parameter and return a string. For an example of
+both, see  [demo/js/leadspend.demo.js](https://github.com/LeadSpend/jquery-validate-leadspend/blob/master/demo/js/leadspend.demo.js#L20-37).
 	
 When a function is used to determine the messae, it is passed a validity object.
 For more detailed information about this object, please check out our [API
