@@ -6,7 +6,7 @@ to be applied to an online form by adding a custom rule to the existing
 jQuery Validate plugin.  With a few caveats, this new rule behaves just like any
 other provided by jQuery Validate.  
 
-Please note that while we believe this plugin is stable, this is a new product and is is still undergoing testing before its official release.
+Please note that while we believe this plugin is stable, this is a new product and is still undergoing testing before its official release.
 
 Getting Started
 ---------------
