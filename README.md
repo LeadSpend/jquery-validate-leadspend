@@ -1,4 +1,4 @@
-LeadSpend jQuery Validate Plugin
+LeadSpend jQuery Validation Plugin
 ================================
 
 **Please note that while we believe this plugin is stable, this is product is in beta and is still undergoing testing before its official release.**
