@@ -1,7 +1,7 @@
 LeadSpend jQuery Validation Plugin
 ================================
 
-**Please note that while we believe this plugin is stable, this is product is in beta and is still undergoing testing before its official release.**
+**Please note that while we believe this plugin is stable, this product is in beta and is still undergoing testing before its official release.**
 
 The LeadSpend jQuery Validation plugin allows for LeadSpend's email validation
 to be applied to an online form by adding a custom rule to the existing
