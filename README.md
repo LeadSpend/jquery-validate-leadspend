@@ -1,10 +1,12 @@
-LeadSpend jQuery Validate Plugin
+LeadSpend jQuery Validation Plugin
 ================================
 
-The LeadSpend jQuery Validate plugin allows for LeadSpend's email validation
+**Please note that while we believe this plugin is stable, this product is in beta and is still undergoing testing before its official release.**
+
+The LeadSpend jQuery Validation plugin allows for LeadSpend's email validation
 to be applied to an online form by adding a custom rule to the existing
 jQuery Validate plugin.  With a few caveats, this new rule behaves just like any
-other provided by jQuery Validate.  
+other provided by jQuery Validation.  
 
 Getting Started
 ---------------
@@ -14,17 +16,17 @@ email us at info@leadspend.com and we'll get you all set up.
 
 ### Form Integration
 
-Integrating jQuery Validate into your form with the LeadSpend validate rule is
+Integrating jQuery Validation into your form with the LeadSpend rule is
 very simple and consists of three steps:
 * Include the required files. See [demo/index.html](https://github.com/LeadSpend/jquery-validate-leadspend/blob/master/demo/index.html#L7-16).
 * Add the class attribute "LeadSpendEmail" to the email field you wish to be validated. See [ demo/index.html](https://github.com/LeadSpend/jquery-validate-leadspend/blob/master/demo/index.html#L28-32).
-* Initialize jQuery Validate on your form with the jQuery Validate configurations
+* Initialize jQuery Validation on your form with the jQuery Validation configurations
 below. See [demo/js/leadspend.demo.js](https://github.com/LeadSpend/jquery-validate-leadspend/blob/master/demo/js/leadspend.demo.js#L7-8) for initialization and the [Recommended jQuery Validate Configuration](https://github.com/LeadSpend/jquery-validate-leadspend#recommended-jquery-validate-configuration) section for details.
 
-Recommended jQuery Validate Configuration
+Recommended jQuery Validation Configuration
 -----------------------------------------
 
-The following configurations of jQuery Validate options are highly recommended
+The following configurations of jQuery Validation options are highly recommended
 to improve the functionality of a form utilizing the LeadSpendEmail rule.  
 
 In the following sections, there are two items which refer to HTML elements of
@@ -34,8 +36,8 @@ the form being validated:
 	
 ### Recommended Validation Handling
 
-By default, jQuery Validate is set to re-validate a field each time a keystroke
-is detected in that field.  Using this methodology for LeadSpend validation
+By default, jQuery Validation is set to re-validate a field each time a keystroke
+is detected in that field.  Using this methodology for the LeadSpend rule
 doesn't make sense because calls will be made to the API before the email
 address has been completely typed.  To prevent this from happening,
 we must customize the default onkeyup action.  For an example of this, see [demo/js/leadspend.demo.js](https://github.com/LeadSpend/jquery-validate-leadspend/blob/master/demo/js/leadspend.demo.js#L10-15)
@@ -55,7 +57,7 @@ to the default invalidHandler as is shown here:  [demo/js/leadspend.demo.js](htt
 Invalid States and Custom Error Messages
 ----------------------------------------
 
-By default, jQuery Validate places an error message next to each field which has
+By default, jQuery Validation places an error message next to each field which has
 been filled out incorrectly.  The LeadSpend plugin is no exception, and provides
 default messages for each invalid state.  These states are as follows:
 
@@ -67,7 +69,7 @@ default messages for each invalid state.  These states are as follows:
 [results onesheet](http://leadspend.com/documentation/Results-LeadSpend.pdf).)
 
 These messages may be customized using either a string or a function, by setting
-custom parameters for the rule through jQuery Validate.  If a function is used,
+custom parameters for the rule through jQuery Validation.  If a function is used,
 the function must accept one parameter and return a string. For an example of
 both, see  [demo/js/leadspend.demo.js](https://github.com/LeadSpend/jquery-validate-leadspend/blob/master/demo/js/leadspend.demo.js#L20-37).
 	
