@@ -70,6 +70,12 @@ LeadSpend.getEmailValidity = function(address){
 LeadSpend.invalidHandler = function(form, validator){
 	LeadSpend.validator = validator;
 	LeadSpend.formID = form.target.id;
+	
+	$("#"+formID+" .LeadSpendEmail").change(function(){
+		if (typeof(LeadSpend.submitAttempted) != "undefined"){
+			LeadSpend.submitAttempted = false;
+		}});
+	
 	var errors = validator.numberOfInvalids();
 
 	if (errors == 1 && LeadSpend.validityPending){
