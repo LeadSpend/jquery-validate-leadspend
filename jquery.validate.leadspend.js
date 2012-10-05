@@ -71,7 +71,7 @@ LeadSpend.invalidHandler = function(form, validator){
 	LeadSpend.validator = validator;
 	LeadSpend.formID = form.target.id;
 	
-	$("#"+formID+" .LeadSpendEmail").change(function(){
+	$("#"+LeadSpend.formID+" .LeadSpendEmail").change(function(){
 		if (typeof(LeadSpend.submitAttempted) != "undefined"){
 			LeadSpend.submitAttempted = false;
 		}});
