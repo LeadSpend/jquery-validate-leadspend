@@ -1,5 +1,5 @@
 /**
- * LeadSpend jQuery Validate integration V1.0b
+ * LeadSpend jQuery Validate integration V1.1b
  *
  * Adds functions to the LeadSpend namespace to aid with integration into jQuery
  * validate.
