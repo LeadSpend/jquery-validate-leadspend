@@ -112,27 +112,33 @@ LeadSpend.reValidate = function(){
  * 
  */
 LeadSpend.setEmailMessages = function(field){
-	lsRules = $("form").validate().settings.rules[field.name].LeadSpendEmail;
-	
-	//set default LeadSpend messages for various stages of invalid addresses
-	if(typeof lsRules.validityPendingMessage == "string"){
-		LeadSpend.validityPendingMessage = lsRules.validityPendingMessage;
+	try{
+		lsRules = $("form").validate().settings.rules[field.name].LeadSpendEmail;
 	}
-	else if(typeof lsRules.validityPendingMessage == "function"){
-		LeadSpend.validityPendingMessage = messages.validityPending(LeadSpend.validity);
+	catch (err){
+		lsRules = $("form").validate().settings.rules["email"].LeadSpendEmail;
 	}
-	else{
-		LeadSpend.validityPendingMessage = "Validating...";
-	}
-	
-	if(typeof lsRules.denyAddressMessage == "string"){
-		LeadSpend.denyAddressMessage = lsRules.denyAddressMessage;
-	}
-	else if(typeof lsRules.denyAddressMessage == "function"){
-		LeadSpend.denyAddressMessage = lsRules.denyAddressMessage(LeadSpend.validity);
-	}
-	else{
-		LeadSpend.denyAddressMessage = LeadSpend.defaultDenyAddressMessage(LeadSpend.validity);
+	finally{
+		//set default LeadSpend messages for various stages of invalid addresses
+		if(typeof lsRules.validityPendingMessage == "string"){
+			LeadSpend.validityPendingMessage = lsRules.validityPendingMessage;
+		}
+		else if(typeof lsRules.validityPendingMessage == "function"){
+			LeadSpend.validityPendingMessage = messages.validityPending(LeadSpend.validity);
+		}
+		else{
+			LeadSpend.validityPendingMessage = "Validating...";
+		}
+		
+		if(typeof lsRules.denyAddressMessage == "string"){
+			LeadSpend.denyAddressMessage = lsRules.denyAddressMessage;
+		}
+		else if(typeof lsRules.denyAddressMessage == "function"){
+			LeadSpend.denyAddressMessage = lsRules.denyAddressMessage(LeadSpend.validity);
+		}
+		else{
+			LeadSpend.denyAddressMessage = LeadSpend.defaultDenyAddressMessage(LeadSpend.validity);
+		}
 	}
 }
 
