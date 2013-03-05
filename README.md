@@ -47,7 +47,7 @@ See [demo/js/leadspend.demo.js](https://github.com/LeadSpend/jquery-validate-lea
 	
 ### Recommended Form Submission Handling
 
-While the LeadSpend result is pending, submitting your form will be disabled even though the address may actually be a good one.  LeadSpend provides a method for attempting to automatically re-submit the form once a valid result is returned.  To do this,  pass a custom invalidhandler function as part of the jQuery Validation options object:  
+While the LeadSpend result is pending, submitting your form will be disabled even though the address may actually be a good one.  LeadSpend provides a method to automatically re-submit the form once a valid result is returned.  To do this,  pass a custom invalidhandler function as part of the jQuery Validation options object:  
 
 	invalidHandler: function(form, validator) {
 		LeadSpend.invalidHandler(form, validator);
