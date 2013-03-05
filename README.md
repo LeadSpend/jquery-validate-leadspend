@@ -29,53 +29,46 @@ Recommended jQuery Validation Configuration
 The following configurations of jQuery Validation options are highly recommended
 to improve the functionality of a form utilizing the LeadSpendEmail rule.  
 
-In the following sections, there are two items which refer to HTML elements of
-the form being validated:
+In the following sections and demo code, there are two items which refer to HTML elements of the form being validated:
 * "ID_OF_FORM" refers to the ID attribute of the form being validated.
 * "EMAIL_FIELD_NAME" refers to the name attribute of the email address field.
 	
 ### Recommended Validation Handling
 
-By default, jQuery Validation is set to re-validate a field each time a keystroke
-is detected in that field.  Using this methodology for the LeadSpend rule
-doesn't make sense because calls will be made to the API before the email
-address has been completely typed.  To prevent this from happening,
-we must customize the default onkeyup action.  For an example of this, see [demo/js/leadspend.demo.js](https://github.com/LeadSpend/jquery-validate-leadspend/blob/master/demo/js/leadspend.demo.js#L10-15)
+In order to prevent jQuery Validate from re-validating the LeadSpendEmail field on each keystroke, we must customize the default onkeyup action.  To do this, pass a custom onkeyup function as part of the jQuery Validation options object:
+
+	onkeyup: function(element) {
+		if ($(element).attr('name') != $(".LeadSpendEmail").attr("name")) {
+			$.validator.defaults.onkeyup.apply(this,arguments);
+		}
+	}
+
+See [demo/js/leadspend.demo.js](https://github.com/LeadSpend/jquery-validate-leadspend/blob/master/demo/js/leadspend.demo.js#L10-15) for an example.
 	
 ### Recommended Form Submission Handling
 
-While the LeadSpend result is pending, the email address field is considered invalid
-even though the address may actually be a good one.  If the user tries to
-submit the form before the LeadSpend API call completes, jQuery Validate will
-block the form submission.  This is correct behavior, because the field will
-still be considered invalid.
+While the LeadSpend result is pending, submitting your form will be disabled even though the address may actually be a good one.  LeadSpend provides a method for attempting to automatically re-submit the form once a valid result is returned.  To do this,  pass a custom invalidhandler function as part of the jQuery Validation options object:  
 
-LeadSpend provides a method for attempting to automatically re-submit the form
-once a valid result is returned.  To utilize this, simply add a function call
-to the default invalidHandler as is shown here:  [demo/js/leadspend.demo.js](https://github.com/LeadSpend/jquery-validate-leadspend/blob/master/demo/js/leadspend.demo.js#L16-19)
+	invalidHandler: function(form, validator) {
+		LeadSpend.invalidHandler(form, validator);
+	}
+
+See [demo/js/leadspend.demo.js](https://github.com/LeadSpend/jquery-validate-leadspend/blob/master/demo/js/leadspend.demo.js#L16-19) for an example.
 
 Invalid States and Custom Error Messages
 ----------------------------------------
 
-By default, jQuery Validation places an error message next to each field which has
-been filled out incorrectly.  The LeadSpend plugin is no exception, and provides
-default messages for each invalid state.  These states are as follows:
+By default, jQuery Validation places an error message next to each field which has been filled out incorrectly.  The LeadSpendEmail rule provides default messages for each invalid state.  These states are as follows:
 
-* Email Validity Pending: An email address has been sent to the LeadSpend API to be classified, but the result has not been returned yet (our median response time is
-500 milliseconds).
+* Email Validity Pending: An email address has been sent to the LeadSpend API to be classified, but the result has not been returned yet.
 
 * Deny Email Eddress: An email address has been classified by LeadSpend as invalid.
 (For more information about our results and what to accept, check out our
 [results onesheet](http://leadspend.com/documentation/Results-LeadSpend.pdf).)
 
-These messages may be customized using either a string or a function, by setting
-custom parameters for the rule through jQuery Validation.  If a function is used,
-the function must accept one parameter and return a string. For an example of
-both, see  [demo/js/leadspend.demo.js](https://github.com/LeadSpend/jquery-validate-leadspend/blob/master/demo/js/leadspend.demo.js#L20-37).
+These messages may be customized using either a string or a function, by setting custom parameters for the rule through jQuery Validation.  If a function is used, the function must accept one parameter and return a string. For an example of both, see  [demo/js/leadspend.demo.js](https://github.com/LeadSpend/jquery-validate-leadspend/blob/master/demo/js/leadspend.demo.js#L20-37).
 	
-When a function is used to determine the messae, it is passed a validity object.
-For more detailed information about this object, please check out our [API
-documentation](http://leadspend.com/documentation/LeadSpend-Validation-API-v2.2d.pdf).  An example in jSON is below:
+When a function is used to determine the message, it is passed a validity object. For more detailed information about this object, please check out our [API documentation](http://leadspend.com/documentation/LeadSpend-Validation-API-v2.2d.pdf).  An example in jSON is below:
 	
     {
 		address: "email.address@provider.com"	//email address you verified
