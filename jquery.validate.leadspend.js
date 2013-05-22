@@ -92,15 +92,17 @@ LeadSpend.invalidHandler = function(form, validator){
 LeadSpend.reValidate = function(){
 	$("form").validate().element(".LeadSpendEmail");
 
-	//submit the form if a submit was previously blocked by a validating email
-	if (LeadSpend.submitAttempted && LeadSpend.validator.numberOfInvalids() == 0){
-		document.forms[LeadSpend.formID].submit.click();
-	}
-	
-	//otherwise they have made the form invalid since pressing submit, so they
-	//need to keep changing stuff
-	else if (LeadSpend.validator.numberOfInvalids >= 1){
-		LeadSpend.submitAttempted = false;
+	if (typeof LeadSpend.validator != "undefined"){
+		//submit the form if a submit was previously blocked by a validating email
+		if (LeadSpend.submitAttempted && LeadSpend.validator.numberOfInvalids() == 0){
+			document.forms[LeadSpend.formID].submit.click();
+		}
+		
+		//otherwise they have made the form invalid since pressing submit, so they
+		//need to keep changing stuff
+		else if (LeadSpend.validator.numberOfInvalids >= 1){
+			LeadSpend.submitAttempted = false;
+		}
 	}
 }
 
