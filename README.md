@@ -1,6 +1,4 @@
-**Please note that this plugin has been replaced by our new [jQuery Plugin: jquery-leadspendemail](https://github.com/LeadSpend/jquery-leadspendemail)**
-
-
+**Please note that this plugin is out of date and should no longer be used.  Please use our new [jQuery Plugin: jquery-leadspendemail](https://github.com/LeadSpend/jquery-leadspendemail) instead.**
 
 LeadSpend jQuery Validation Plugin
 ================================
